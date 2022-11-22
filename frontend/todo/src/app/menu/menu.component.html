@@ -1,1 +1,17 @@
-<p>Top Menu Element</p>
+<header>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="ms-3">
+      <a href="https://www.in28minutes.com" class="navbar-brand">JavaAngularTracker</a>
+    </div>
+
+    <ul class="navbar-nav" *ngIf="hardcodedAuthenticationService.isUserLoggedIn()">
+      <li class="nav-item"><a class="nav-link" routerLink="/welcome/in28minutes">Home</a></li>
+      <li class="nav-item"><a class="nav-link" routerLink="/todos">Todos</a></li>
+    </ul>
+
+    <ul class="navbar-nav navbar-collapse justify-content-end">
+      <li *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
+      <li *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" class="nav-item"><a class="nav-link" routerLink="/logout">Logout</a></li>
+    </ul>
+  </nav>
+</header>
